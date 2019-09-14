@@ -1,2 +1,2 @@
 # Fontenay
-server for fontenay
+Server of Fontenay
