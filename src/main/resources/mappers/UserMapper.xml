@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC '-//mybatis.org//DTD Mapper 3.0//EN' 'http://mybatis.org/dtd/mybatis-3-mapper.dtd'>
+<mapper namespace='cn.gongcunyang.server.user.UserMapper'>
+
+    <resultMap type='cn.gongcunyang.server.user.User' id='UserResult'>
+        <id property='id' column='id'/>
+        <result property='userName' column='user_name'/>
+        <result property='firstName' column='first_name'/>
+        <result property='lastName' column='last_name'/>
+        <result property='email' column='email'/>
+        <result property='password' column='password'/>
+        <result property='role' column='role'/>
+        <result property='permission' column='permission'/>
+        <result property='description' column='description'/>
+    </resultMap>
+
+    <select id='getAllUsers' resultMap='UserResult'>
+        select *
+        from users
+    </select>
+
+    <select id='getUserById' parameterType='int' resultType='cn.gongcunyang.server.user.User'>
+        select id,
+               user_name  as userName,
+               first_name as firstName,
+               last_name  as lastName,
+               email,
+               password,
+               role,
+               permission,
+               description
+        from users
+        where id = #{id}
+    </select>
+
+    <insert id='addUser' parameterType='cn.gongcunyang.server.user.User' useGeneratedKeys='true' keyProperty='id'>
+        insert into users(user_name, first_name, last_name, email, password, role, permission, description)
+        values (#{userName}, #{firstName}, #{lastName}, #{email}, #{password}, #{role}, #{permission}, #{description})
+    </insert>
+
+    <update id='updateUser' parameterType='cn.gongcunyang.server.user.User'>
+        update users
+        set user_name= #{userName},
+            first_name = #{firstName},
+            last_name = #{lastName},
+            email = #{email},
+            password = #{password},
+            role = #{role},
+            permission = #{permission},
+            description = #{description}
+        where id = #{id}
+    </update>
+
+    <delete id='deleteUser' parameterType='int'>
+        delete
+        from users
+        where id = #{id}
+    </delete>
+
+    <select id='getUserByName' parameterType='String' resultType='cn.gongcunyang.server.user.User'>
+        select *
+        from users
+        where user_name = #{userName}
+    </select>
+
+</mapper>
