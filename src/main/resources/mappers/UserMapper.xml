@@ -2,6 +2,23 @@
 <!DOCTYPE mapper PUBLIC '-//mybatis.org//DTD Mapper 3.0//EN' 'http://mybatis.org/dtd/mybatis-3-mapper.dtd'>
 <mapper namespace='cn.gongcunyang.server.user.UserMapper'>
 
+    <!--CREATE TABLE `users` (
+    `id` INT(11) NOT NULL AUTO_INCREMENT,
+    `user_name` VARCHAR(45) NOT NULL,
+    `first_name` VARCHAR(45) DEFAULT NULL,
+    `last_name` VARCHAR(45) DEFAULT NULL,
+    `email` VARCHAR(45) DEFAULT NULL,
+    `password` VARCHAR(120) NOT NULL,
+    `role` VARCHAR(45) DEFAULT NULL,
+    `permission` VARCHAR(45) DEFAULT NULL,
+    `description` VARCHAR(120) DEFAULT NULL,
+    PRIMARY KEY (`id`),
+    UNIQUE KEY `id_UNIQUE` (`id`),
+    UNIQUE KEY `user_name_UNIQUE` (`user_name`),
+    UNIQUE KEY `email_UNIQUE` (`email`)
+    )  ENGINE=INNODB AUTO_INCREMENT=7 DEFAULT CHARSET=UTF8MB4 COLLATE = UTF8MB4_0900_AI_CI;
+    -->
+
     <resultMap type='cn.gongcunyang.server.user.User' id='UserResult'>
         <id property='id' column='id'/>
         <result property='userName' column='user_name'/>
