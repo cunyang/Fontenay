@@ -3,7 +3,7 @@
 <mapper namespace='cn.gongcunyang.server.user.UserMapper'>
 
     <!--CREATE TABLE `users` (
-    `id` INT(11) NOT NULL AUTO_INCREMENT,
+    `id` INT NOT NULL AUTO_INCREMENT,
     `user_name` VARCHAR(45) NOT NULL,
     `first_name` VARCHAR(45) DEFAULT NULL,
     `last_name` VARCHAR(45) DEFAULT NULL,
@@ -16,7 +16,7 @@
     UNIQUE KEY `id_UNIQUE` (`id`),
     UNIQUE KEY `user_name_UNIQUE` (`user_name`),
     UNIQUE KEY `email_UNIQUE` (`email`)
-    )  ENGINE=INNODB AUTO_INCREMENT=7 DEFAULT CHARSET=UTF8MB4 COLLATE = UTF8MB4_0900_AI_CI;
+    )  ENGINE=INNODB CHARSET=UTF8MB4 COLLATE = UTF8MB4_0900_AI_CI;
     -->
 
     <resultMap type='cn.gongcunyang.server.user.User' id='UserResult'>
